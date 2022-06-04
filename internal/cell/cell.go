@@ -1,20 +1,12 @@
 package cell
 
 type Cell struct {
-	x, y    int
 	full    bool
 	visited bool
-	n       *Cell
-	s       *Cell
-	e       *Cell
-	w       *Cell
 }
 
-func New(x, y int) *Cell {
-	return &Cell{
-		x: x,
-		y: y,
-	}
+func New() *Cell {
+	return &Cell{}
 }
 
 func (c *Cell) IsFree() bool {
@@ -37,15 +29,9 @@ func (c *Cell) IsVisited() bool {
 	return !c.visited
 }
 
-func (c *Cell) Link(direction string, cell *Cell) {
-	switch direction {
-	case "N":
-		c.n = cell
-	case "S":
-		c.s = cell
-	case "E":
-		c.e = cell
-	case "W":
-		c.w = cell
+func (c *Cell) String() string {
+	if c.IsFree() {
+		return "[ ]"
 	}
+	return "[X]"
 }

@@ -8,10 +8,18 @@ import (
 )
 
 func main() {
-	var boardSize = flag.Int("n", 9, "board size")
+	var boardSize = flag.Int("n", 3, "board size")
 	flag.Parse()
 
 	b := board.New(*boardSize)
-	b.Draw([]int{2, 3, 4, 5})
 	fmt.Println(b.String())
+	fmt.Println(b.Graph())
+
+	b.Draw(2)
+	fmt.Println(b.String())
+	fmt.Println(b.Graph())
+
+	b.Draw(4)
+	fmt.Println(b.String())
+	fmt.Println(b.Graph())
 }
